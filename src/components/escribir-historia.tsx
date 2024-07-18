@@ -1,6 +1,5 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -11,8 +10,7 @@ import {
 } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
 
-export function EscribirHistoria() {
-
+export function EscribirHistoria({historia, setHistoria}:{historia:string, setHistoria:React.Dispatch<React.SetStateAction<string>>}) {
   return (
     <Card className="w-full max-w-4xl">
     <CardHeader>
@@ -20,9 +18,8 @@ export function EscribirHistoria() {
       <CardDescription>Escribe una historia relacionada a la palabra descubierta en el ejercicio 1</CardDescription>
     </CardHeader>
     <CardContent>
-        <Textarea placeholder="Escribe tu historia aquí..." maxLength={1000} className="h-40"></Textarea>
+        <Textarea placeholder="Escribe tu historia aquí..." maxLength={1000} className="h-40" onChange={(e) => setHistoria(e.target.value)} value={historia}></Textarea>
     </CardContent>
   </Card>
-
   )
 }
