@@ -7,7 +7,7 @@ import { IngresarNombre } from "@/components/ingresar-nombre";
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { palabras } from "@/data/palabras";
-
+import { Temporizador } from "@/components/temporizador";
 
 export function Juego() {
   const [nivel, setNivel] = useState<number>(1);
@@ -15,8 +15,11 @@ export function Juego() {
   const [palabra, setPalabra] = useState<string>("conejo");
   const [palabraIngresada, setPalabraIngresada] = useState<string>("");
   const [historia, setHistoria] = useState<string>("");
-  const [palabrasSeleccionadas, setPalabrasSeleccionadas] = useState<string[]>([]);
-  const [jugando, setJugando] = useState<boolean>(true);
+  const [palabrasSeleccionadas, setPalabrasSeleccionadas] = useState<string[]>(
+    []
+  );
+  const [jugando, setJugando] = useState<boolean>(false);
+  const [tiempo, setTiempo] = useState<number>(0);
 
   useEffect(() => {
     // Seleccionar 10 palabras aleatorias del array `palabras`
@@ -28,11 +31,12 @@ export function Juego() {
     }
 
     // Ordenar las palabras seleccionadas por longitud
-    const palabrasOrdenadas = palabrasRandom.sort((a, b) => a.length - b.length);
+    const palabrasOrdenadas = palabrasRandom.sort(
+      (a, b) => a.length - b.length
+    );
     setPalabrasSeleccionadas(palabrasOrdenadas);
     setPalabra(palabrasOrdenadas[nivel - 1]);
   }, [jugando]);
-
 
   useEffect(() => {
     if (palabrasSeleccionadas.length > 0) {
@@ -40,42 +44,77 @@ export function Juego() {
     }
   }, [nivel, palabrasSeleccionadas]);
 
+  const handleTimeUpdate = (time: number) => {
+    setTiempo(time);
+  };
 
   const nextLevel = () => {
-    console.log(nombre, palabra, palabraIngresada, historia)
-    setHistoria("")
-    if(nivel===10){
-      setJugando(false)
-      return
+    const resultados = {
+      nombre,
+      nivel,
+      palabra,
+      success: palabra === palabraIngresada ? true : false,
+      historia: historia,
+      tiempo,
+    };
+    console.log(resultados);
+    setHistoria("");
+    if (nivel === 10) {
+      setJugando(false);
+      return;
     }
-    setNivel(nivel+1)
-    window.scroll(0,0)
-  }
-  if(jugando){
+    setNivel(nivel + 1);
+    window.scroll(0, 0);
+  };
+  if (jugando) {
     return (
       <div className="w-full flex flex-col justify-center items-center pt-8 space-y-6">
-        <IngresarNombre nombre={nombre} setNombre={setNombre}/>
-  
         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-6">
           Nivel {nivel.toString()}
         </h2>
-        <OrdenarPalabra palabra={palabra} setPalabraIngresada={setPalabraIngresada}/>
-        <JuegoTangram nivel={nivel}/>
-        <EscribirHistoria setHistoria={setHistoria} historia={historia}/>
+        <Temporizador nivel={nivel} onTimeUpdate={handleTimeUpdate} />
+        <OrdenarPalabra
+          palabra={palabra}
+          setPalabraIngresada={setPalabraIngresada}
+        />
+        <JuegoTangram nivel={nivel} />
+        <EscribirHistoria setHistoria={setHistoria} historia={historia} />
         <div className="max-w-4xl flex justify-center md:justify-end w-full">
           <Button onClick={nextLevel}>Siguiente Nivel</Button>
         </div>
       </div>
-    );  } else {
-      return(
-        <div className="w-full flex flex-col justify-center items-center space-y-6 my-auto">
+    );
+  }
+  if (jugando === false && nivel === 10) {
+    return (
+      <div className="w-full flex flex-col justify-center items-center space-y-6 my-auto">
         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight text-center">
-          Felicidades {nombre}, has completado el juego
+          Felicidades{" "}
+          <span className="font-bold text-muted-foreground">{nombre}</span>, has
+          completado el juego
         </h2>
-        <Button onClick={()=> {setJugando(true); setNivel(1)}}>Comenzar otra vez</Button>
+        <Button
+          onClick={() => {
+            setNivel(1);
+          }}
+        >
+          Comenzar otra vez
+        </Button>
       </div>
-      )
-
-    }
-  
+    );
+  }
+  if (jugando === false && nivel === 1) {
+    return (
+      <div className="w-full flex flex-col justify-center items-center space-y-6 my-auto">
+        <IngresarNombre nombre={nombre} setNombre={setNombre} />
+        <Button
+          onClick={() => {
+            setJugando(true);
+          }}
+        >
+          ¡Comenzar!
+        </Button>
+      </div>
+    );
+  }
 }
