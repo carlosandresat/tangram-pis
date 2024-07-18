@@ -20,7 +20,7 @@ export default function Home() {
         <div className="self-end">
           <ModeToggle></ModeToggle>
         </div>
-        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6 text-center">
           Juego de Ordenar Palabras
         </h1>
         <Juego />

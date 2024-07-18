@@ -17,7 +17,7 @@ export function JuegoTangram() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="aspect-video w-full p-8">
+        <div className="aspect-video w-full md:p-8">
           <iframe
             src="https://www.cokitos.com/juegos/trz-tangram/"
             className="w-full h-full rounded-md"
