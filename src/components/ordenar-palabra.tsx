@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card"
 import { useEffect, useState } from "react";
 
-export function OrdenarPalabra({palabra, setPalabraIngresada}:{palabra:string, setPalabraIngresada:React.Dispatch<React.SetStateAction<string>>}) {
+export function OrdenarPalabra({palabra, setPalabraIngresada, nivel}:{palabra:string, setPalabraIngresada:React.Dispatch<React.SetStateAction<string>>, nivel:number}) {
 
   const [letters, setLetters] = useState<string[]>([]);
   const [selectedIndices, setSelectedIndices] = useState<number[]>([]);
@@ -53,7 +53,7 @@ export function OrdenarPalabra({palabra, setPalabraIngresada}:{palabra:string, s
             <Button
               key={index}
               onClick={() => handleButtonClick(index)}
-              className={`aspect-square flex-shrink text-lg ${selectedIndices.includes(index) ? "ring-2 ring-ring ring-offset-2" : "hover:ring-2 hover:ring-ring hover:ring-offset-2"}`}
+              className={`aspect-square flex-shrink text-lg ${selectedIndices.includes(index) ? "ring-2 ring-ring ring-offset-2" : "hover:ring-2 hover:ring-ring hover:ring-offset-2"} ${nivel > 7 ? "bg-destructive text-destructive-foreground hover:bg-destructive/90" : nivel > 4 ? "bg-green-400 hover:bg-green-400/90": ""}`}
               style={{ minWidth: '25px', maxWidth: '60px', padding: '10px' }}
             >
               {letter}

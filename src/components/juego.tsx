@@ -102,11 +102,14 @@ export function Juego() {
         <OrdenarPalabra
           palabra={palabra}
           setPalabraIngresada={setPalabraIngresada}
+          nivel={nivel}
         />
         <JuegoTangram nivel={nivel} />
         <EscribirHistoria setHistoria={setHistoria} historia={historia} />
         <div className="max-w-4xl flex justify-center md:justify-end w-full">
-          <Button onClick={nextLevel}>Siguiente Nivel</Button>
+          <Button onClick={nextLevel} className={
+            `${nivel > 7 ? "bg-destructive text-destructive-foreground hover:bg-destructive/90" : nivel > 4 ? "bg-green-400 hover:bg-green-400/90": ""}`
+          }>{nivel === 10 ? "Ver Puntaje" : "Siguiente Nivel"}</Button>
         </div>
       </div>
     );
