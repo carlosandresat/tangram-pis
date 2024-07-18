@@ -7,7 +7,7 @@ import { EscribirHistoria } from "@/components/escribir-historia"
 export function Juego() {
 
   return (
-    <div>
+    <div className="w-full flex flex-col justify-center items-center pt-8 space-y-6">
         <OrdenarPalabra />
         <JuegoTangram />
         <EscribirHistoria />
