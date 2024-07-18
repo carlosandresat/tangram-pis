@@ -60,7 +60,7 @@ export function Juego() {
           Nivel {nivel.toString()}
         </h2>
         <OrdenarPalabra palabra={palabra} setPalabraIngresada={setPalabraIngresada}/>
-        <JuegoTangram />
+        <JuegoTangram nivel={nivel}/>
         <EscribirHistoria setHistoria={setHistoria} historia={historia}/>
         <div className="max-w-4xl flex justify-center md:justify-end w-full">
           <Button onClick={nextLevel}>Siguiente Nivel</Button>

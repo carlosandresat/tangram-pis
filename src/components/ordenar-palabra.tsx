@@ -48,18 +48,19 @@ export function OrdenarPalabra({palabra, setPalabraIngresada}:{palabra:string, s
       <CardDescription>Dale click a 2 casilleros para intercambiar su orden hasta encontrar la palabra escondida</CardDescription>
     </CardHeader>
     <CardContent>
-        <div className="flex w-full justify-center space-x-2">
-        {letters.map((letter, index) => (
+    <div className="flex w-full justify-center space-x-2">
+          {letters.map((letter, index) => (
             <Button
               key={index}
               onClick={() => handleButtonClick(index)}
-              className={selectedIndices.includes(index) ? "ring-2 ring-ring ring-offset-2" : "hover:ring-2 hover:ring-ring hover:ring-offset-2"}
-
+              className={`aspect-square flex-shrink text-lg ${selectedIndices.includes(index) ? "ring-2 ring-ring ring-offset-2" : "hover:ring-2 hover:ring-ring hover:ring-offset-2"}`}
+              style={{ minWidth: '25px', maxWidth: '60px', padding: '10px' }}
             >
               {letter}
             </Button>
           ))}
         </div>
+
     </CardContent>
   </Card>
 

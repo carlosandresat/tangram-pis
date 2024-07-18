@@ -6,7 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-export function JuegoTangram() {
+export function JuegoTangram({ nivel }: { nivel: number }) {
   return (
     <Card className="w-full max-w-4xl">
       <CardHeader>
@@ -19,6 +19,7 @@ export function JuegoTangram() {
       <CardContent>
         <div className="aspect-video w-full md:p-8">
           <iframe
+            key={nivel}
             src="https://www.cokitos.com/juegos/trz-tangram/"
             className="w-full h-full rounded-md"
           ></iframe>
