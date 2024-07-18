@@ -1,16 +1,16 @@
 import { ModeToggle } from "@/components/mode-toggle";
 import Link from "next/link";
 
-export default function Home() {
+export default function Resultados() {
   return (
     <>
       <header className="px-4 lg:px-6 h-16 flex items-center border-b fixed top-0 w-full bg-background z-10">
         <nav className="ml-auto flex gap-4 sm:gap-6">
           <Link
             className="text-sm font-medium hover:underline underline-offset-4"
-            href="/resultados"
+            href="/"
           >
-            Resultados
+            Volver al juego
           </Link>
         </nav>
       </header>
@@ -20,7 +20,7 @@ export default function Home() {
           <ModeToggle></ModeToggle>
         </div>
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-          Juego de Ordenar Palabras
+          Respuestas Otenidas
         </h1>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
