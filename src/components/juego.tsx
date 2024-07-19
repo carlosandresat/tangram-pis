@@ -100,13 +100,15 @@ export function Juego() {
   if (jugando) {
     return (
       <>
-        <Image
-          src="/tangram-logo.webp"
-          alt="App Logo"
-          height={90}
-          width={90}
-          className="rounded-full"
-        ></Image>
+        <div className="h-24 w-24">
+          <Image
+            src="/tangram-logo.webp"
+            alt="App Logo"
+            height={300}
+            width={300}
+            className="rounded-full"
+          ></Image>
+        </div>
         <h1
           className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6 text-center ${
             jugando ? "hidden" : ""
@@ -165,13 +167,15 @@ export function Juego() {
   if (jugando === false && nivel === 10) {
     return (
       <>
-        <Image
-          src="/tangram-logo.webp"
-          alt="App Logo"
-          height={90}
-          width={90}
-          className="rounded-full"
-        ></Image>
+        <div className="h-24 w-24">
+          <Image
+            src="/tangram-logo.webp"
+            alt="App Logo"
+            height={300}
+            width={300}
+            className="rounded-full"
+          ></Image>
+        </div>
         <h1
           className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6 text-center ${
             jugando ? "hidden" : ""
@@ -254,13 +258,15 @@ export function Juego() {
   if (jugando === false && nivel === 1) {
     return (
       <>
-        <Image
-          src="/tangram-logo.webp"
-          alt="App Logo"
-          height={90}
-          width={90}
-          className="rounded-full"
-        ></Image>
+        <div className="h-24 w-24">
+          <Image
+            src="/tangram-logo.webp"
+            alt="App Logo"
+            height={300}
+            width={300}
+            className="rounded-full"
+          ></Image>
+        </div>
         <h1
           className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6 text-center ${
             jugando ? "hidden" : ""
