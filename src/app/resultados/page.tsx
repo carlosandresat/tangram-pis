@@ -15,7 +15,7 @@ import { UpdateResultsButton } from "@/components/update-results-button";
 import Image from "next/image";
 
 export default async function Resultados() {
-  const respuestas = await obtenerRespuestas()
+  const respuestas = await obtenerRespuestas();
 
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
@@ -26,12 +26,10 @@ export default async function Resultados() {
   return (
     <>
       <header className="px-4 lg:px-6 h-16 flex items-center border-b fixed top-0 w-full bg-background z-10 justify-between md:h-20">
-      <div className="h-12 w-12 md:h-16 md:w-16">
-
-        <Image src="/UCE.png" alt="UCE Logo" height={300} width={300}></Image>
-</div>
+        <div className="h-12 w-12 md:h-16 md:w-16">
+          <Image src="/UCE.png" alt="UCE Logo" height={300} width={300}></Image>
+        </div>
         <nav className=" flex gap-4 sm:gap-6">
-          
           <Link
             className="text-sm font-medium hover:underline underline-offset-4"
             href="/"
@@ -40,9 +38,14 @@ export default async function Resultados() {
           </Link>
         </nav>
         <div className="h-12 w-12 md:h-16 md:w-16">
-
-        <Image src="/Facultad.png" alt="Facultad Logo" height={300} width={300} className="rounded-full"></Image>
-</div>
+          <Image
+            src="/Facultad.png"
+            alt="Facultad Logo"
+            height={300}
+            width={300}
+            className="rounded-full"
+          ></Image>
+        </div>
       </header>
 
       <main className="flex flex-col items-center p-8 w-full min-h-[calc(100vh-65px)] pt-24">
@@ -70,23 +73,25 @@ export default async function Resultados() {
               </TableRow>
             </TableHeader>
             <TableBody>
-            {respuestas ? respuestas.map((respuesta, index) => (
-                <TableRow key={index}>
-                  <TableCell>{index + 1}</TableCell>
-                  <TableCell>{respuesta.nombre}</TableCell>
-                  <TableCell>{respuesta.nivel}</TableCell>
-                  <TableCell>{respuesta.palabra}</TableCell>
-                  <TableCell>
-                    {respuesta.logrado ? (
-                      <Check color="#30d15b" />
-                    ) : (
-                      <X color="#ff1100" />
-                    )}
-                  </TableCell>
-                  <TableCell>{respuesta.historia}</TableCell>
-                  <TableCell>{formatTime(respuesta.tiempo)}</TableCell>
-                </TableRow>
-              )): null}
+              {respuestas
+                ? respuestas.map((respuesta, index) => (
+                    <TableRow key={index}>
+                      <TableCell>{index + 1}</TableCell>
+                      <TableCell>{respuesta.nombre}</TableCell>
+                      <TableCell>{respuesta.nivel}</TableCell>
+                      <TableCell>{respuesta.palabra}</TableCell>
+                      <TableCell>
+                        {respuesta.logrado ? (
+                          <Check color="#30d15b" />
+                        ) : (
+                          <X color="#ff1100" />
+                        )}
+                      </TableCell>
+                      <TableCell>{respuesta.historia}</TableCell>
+                      <TableCell>{formatTime(respuesta.tiempo)}</TableCell>
+                    </TableRow>
+                  ))
+                : null}
             </TableBody>
           </Table>
         </div>
@@ -95,7 +100,8 @@ export default async function Resultados() {
         <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
           Desarrollado por{" "}
           <span className="font-bold text-foreground">
-          Arias Michelle, Cabrera Karen, Guayta Katherine, Santillán Adrián y Suarez Nathali
+            Arias Michelle, Cabrera Karen, Guayta Katherine, Santillán Adrián y
+            Suarez Nathali
           </span>
           .
         </p>

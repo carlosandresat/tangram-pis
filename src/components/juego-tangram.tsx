@@ -24,7 +24,10 @@ export function JuegoTangram({ nivel }: { nivel: number }) {
             className="w-full h-full rounded-md"
           ></iframe>
         </div>
-        <p className="md:hidden text-sm text-muted-foreground mt-2">Recomendamos rotar horizontalmente la pantalla del celular para una mejor experiencia</p>
+        <p className="md:hidden text-sm text-muted-foreground mt-2">
+          Recomendamos rotar horizontalmente la pantalla del celular para una
+          mejor experiencia
+        </p>
       </CardContent>
     </Card>
   );

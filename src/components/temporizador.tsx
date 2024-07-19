@@ -2,12 +2,18 @@
 
 import { useState, useEffect } from "react";
 
-export function Temporizador({ nivel, onTimeUpdate }: { nivel: number, onTimeUpdate: (time: number) => void }) {
+export function Temporizador({
+  nivel,
+  onTimeUpdate,
+}: {
+  nivel: number;
+  onTimeUpdate: (time: number) => void;
+}) {
   const [time, setTime] = useState<number>(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setTime(prevTime => prevTime + 1);
+      setTime((prevTime) => prevTime + 1);
     }, 1000);
 
     return () => clearInterval(timer);
