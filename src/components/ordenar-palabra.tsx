@@ -10,8 +10,9 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { useEffect, useState } from "react";
+import { Check } from "lucide-react";
 
-export function OrdenarPalabra({palabra, setPalabraIngresada, nivel}:{palabra:string, setPalabraIngresada:React.Dispatch<React.SetStateAction<string>>, nivel:number}) {
+export function OrdenarPalabra({palabra, setPalabraIngresada, nivel, palabraIngresada}:{palabra:string, setPalabraIngresada:React.Dispatch<React.SetStateAction<string>>, nivel:number, palabraIngresada:string}) {
 
   const [letters, setLetters] = useState<string[]>([]);
   const [selectedIndices, setSelectedIndices] = useState<number[]>([]);
@@ -48,7 +49,7 @@ export function OrdenarPalabra({palabra, setPalabraIngresada, nivel}:{palabra:st
       <CardDescription>Dale click a 2 casilleros para intercambiar su orden hasta encontrar la palabra escondida</CardDescription>
     </CardHeader>
     <CardContent>
-    <div className="flex w-full justify-center space-x-2">
+    <div className="flex w-full justify-center space-x-2 items-center">
           {letters.map((letter, index) => (
             <Button
               key={index}
@@ -59,6 +60,9 @@ export function OrdenarPalabra({palabra, setPalabraIngresada, nivel}:{palabra:st
               {letter}
             </Button>
           ))}
+          <div className={`${palabraIngresada === palabra ? "pl-4": "hidden"} `}>
+          <Check color="#30d15b"/>
+          </div>
         </div>
 
     </CardContent>

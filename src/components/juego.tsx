@@ -17,6 +17,7 @@ import {
 } from "recharts"
 import { ChartConfig, ChartContainer } from "@/components/ui/chart"
 import Image from "next/image";
+import { Check } from "lucide-react";
 
 const generateChartData = (puntaje:number) => {
   const chartData = [
@@ -108,8 +109,13 @@ export function Juego() {
           palabra={palabra}
           setPalabraIngresada={setPalabraIngresada}
           nivel={nivel}
+          palabraIngresada={palabraIngresada}
         />
         <JuegoTangram nivel={nivel} />
+        <div className={`w-full max-w-4xl flex justify-end ${historia.length > 10 ? "": "hidden"} `}>
+          <Check color="#30d15b"/>
+          </div>
+
         <EscribirHistoria setHistoria={setHistoria} historia={historia} />
         <div className="max-w-4xl flex justify-center md:justify-end w-full">
           <Button onClick={nextLevel} className={

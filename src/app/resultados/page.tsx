@@ -41,6 +41,7 @@ export default function Resultados() {
               <TableRow>
                 <TableHead>#</TableHead>
                 <TableHead>Nombre</TableHead>
+                <TableHead>Nivel</TableHead>
                 <TableHead>Palabra</TableHead>
                 <TableHead>Logrado</TableHead>
                 <TableHead className="text-left w-[400px]">Historia</TableHead>
@@ -49,11 +50,12 @@ export default function Resultados() {
             </TableHeader>
             <TableBody>
               <TableRow>
-                <TableCell className="font-medium">1</TableCell>
+                <TableCell>1</TableCell>
                 <TableCell>Nombre Ejemplo</TableCell>
-                <TableCell>Conejo</TableCell>
+                <TableCell>1</TableCell>
+                <TableCell>conejo</TableCell>
                 <TableCell>
-                  <Check />
+                  <Check color="#30d15b"/>
                 </TableCell>
                 <TableCell>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -65,11 +67,12 @@ export default function Resultados() {
                 <TableCell>3min 8s</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell className="font-medium">2</TableCell>
+                <TableCell>2</TableCell>
                 <TableCell>Nombre Ejemplo</TableCell>
-                <TableCell>Perro</TableCell>
+                <TableCell>1</TableCell>
+                <TableCell>perro</TableCell>
                 <TableCell>
-                  <X />
+                  <X color="#ff1100"/>
                 </TableCell>
                 <TableCell>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
