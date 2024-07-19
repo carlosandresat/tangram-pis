@@ -123,7 +123,9 @@ export function Juego() {
           </div>
 
         <EscribirHistoria setHistoria={setHistoria} historia={historia} />
-        <div className="max-w-4xl flex justify-center md:justify-end w-full">
+        <div className="max-w-4xl flex justify-between w-full">
+        <a href="https://www.canva.com/design/DAGLW2wMkeM/jIyF0qrzJgOMOUdXSjD4vw/view?utm_content=DAGLW2wMkeM&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank"><Button variant="outline">Instrucciones y Autoevaluación</Button></a>
+
           <Button onClick={nextLevel} className={
             `${nivel > 7 ? "bg-destructive text-destructive-foreground hover:bg-destructive/90" : nivel > 4 ? "bg-green-400 hover:bg-green-400/90": ""}`
           }>{nivel === 10 ? "Ver Puntaje" : "Siguiente Nivel"}</Button>
@@ -226,6 +228,7 @@ export function Juego() {
         >
           ¡Comenzar!
         </Button>
+        <a href="https://www.canva.com/design/DAGLW2wMkeM/jIyF0qrzJgOMOUdXSjD4vw/view?utm_content=DAGLW2wMkeM&utm_campaign=designshare&utm_medium=link&utm_source=viewer" target="_blank"><Button variant="outline">Instrucciones y Autoevaluación</Button></a>
       </div>
       </>
     );
