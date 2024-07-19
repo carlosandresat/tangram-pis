@@ -38,7 +38,7 @@ export default async function Resultados() {
           </Link>
         </nav>
         
-        <Image src="/facultad.png" alt="Facultad Logo" height={50} width={50} className="rounded-full"></Image>
+        <Image src="/Facultad.png" alt="Facultad Logo" height={50} width={50} className="rounded-full"></Image>
 
       </header>
 

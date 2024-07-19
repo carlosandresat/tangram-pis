@@ -16,7 +16,7 @@ export default function Home() {
             Resultados
           </Link>
         </nav>
-        <Image src="/facultad.png" alt="Facultad Logo" height={50} width={50} className="rounded-full"></Image>
+        <Image src="/Facultad.png" alt="Facultad Logo" height={50} width={50} className="rounded-full"></Image>
       </header>
 
       <main className="flex flex-col items-center p-8 w-full min-h-[calc(100vh-65px)] pt-24">
