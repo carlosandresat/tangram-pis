@@ -97,7 +97,7 @@ export function Juego() {
     return (
       <><Image src="/tangram-logo.webp" alt="App Logo" height={90} width={90} className="rounded-full"></Image>
       <h1 className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6 text-center ${jugando ? "hidden": ""}`}>
-        Juego de Ordenar Palabras
+        Tangram: la Figura de las Mil Formas
       </h1>
       <div className="w-full flex flex-col justify-center items-center pt-8 space-y-6">
         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-6">
@@ -124,7 +124,7 @@ export function Juego() {
     return (
       <><Image src="/tangram-logo.webp" alt="App Logo" height={90} width={90} className="rounded-full"></Image>
       <h1 className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6 text-center ${jugando ? "hidden": ""}`}>
-        Juego de Ordenar Palabras
+      Tangram: la Figura de las Mil Formas
       </h1>
       <div className="w-full flex flex-col justify-center items-center space-y-6 my-auto">
         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight text-center">
@@ -202,7 +202,7 @@ export function Juego() {
     return (
       <><Image src="/tangram-logo.webp" alt="App Logo" height={90} width={90} className="rounded-full"></Image>
       <h1 className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6 text-center ${jugando ? "hidden": ""}`}>
-        Juego de Ordenar Palabras
+      Tangram: La figura de las mil formas
       </h1>
       <div className="w-full flex flex-col justify-center items-center space-y-6 my-auto">
         <IngresarNombre nombre={nombre} setNombre={setNombre} />
