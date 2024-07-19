@@ -2,6 +2,7 @@
 
 import { palabras } from "@/data/palabras";
 import { sql } from "@vercel/postgres";
+import { revalidatePath } from "next/cache";
 
 export const insertarRespuestas = async (resultados:{
     nombre: string,
@@ -42,4 +43,8 @@ export const obtenerRespuestas = async () => {
         console.log(error)
       return null
     }
+};
+
+export const revalidarRespuestas = () => {
+  revalidatePath("/resultados")
 };

@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table";
 import { Check, X } from "lucide-react";
 import { obtenerRespuestas } from "@/app/actions/results";
+import { UpdateResultsButton } from "@/components/update-results-button";
 
 export default async function Resultados() {
   const respuestas = await obtenerRespuestas()
@@ -39,8 +40,9 @@ export default async function Resultados() {
       </header>
 
       <main className="flex flex-col items-center p-8 w-full min-h-[calc(100vh-65px)] pt-24">
-        <div className="self-start hidden md:block">
+        <div className="self-start hidden md:flex md:justify-between w-full">
           <ModeToggle></ModeToggle>
+          <UpdateResultsButton></UpdateResultsButton>
         </div>
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6">
           Respuestas Obtenidas
