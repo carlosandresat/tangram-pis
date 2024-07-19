@@ -24,10 +24,6 @@ export default function Home() {
         <div className="self-start hidden md:block">
           <ModeToggle></ModeToggle>
         </div>
-
-        <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6 text-center">
-          Juego de Ordenar Palabras
-        </h1>
         <Juego />
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">

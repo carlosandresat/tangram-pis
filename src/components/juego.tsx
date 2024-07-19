@@ -16,6 +16,7 @@ import {
   RadialBarChart,
 } from "recharts"
 import { ChartConfig, ChartContainer } from "@/components/ui/chart"
+import Image from "next/image";
 
 const generateChartData = (puntaje:number) => {
   const chartData = [
@@ -94,6 +95,10 @@ export function Juego() {
   };
   if (jugando) {
     return (
+      <><Image src="/tangram-logo.webp" alt="App Logo" height={90} width={90} className="rounded-full"></Image>
+      <h1 className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6 text-center ${jugando ? "hidden": ""}`}>
+        Juego de Ordenar Palabras
+      </h1>
       <div className="w-full flex flex-col justify-center items-center pt-8 space-y-6">
         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-6">
           Nivel {nivel.toString()}
@@ -112,10 +117,15 @@ export function Juego() {
           }>{nivel === 10 ? "Ver Puntaje" : "Siguiente Nivel"}</Button>
         </div>
       </div>
+      </>
     );
   }
   if (jugando === false && nivel === 10) {
     return (
+      <><Image src="/tangram-logo.webp" alt="App Logo" height={90} width={90} className="rounded-full"></Image>
+      <h1 className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6 text-center ${jugando ? "hidden": ""}`}>
+        Juego de Ordenar Palabras
+      </h1>
       <div className="w-full flex flex-col justify-center items-center space-y-6 my-auto">
         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight text-center">
           Felicidades{" "}
@@ -185,10 +195,15 @@ export function Juego() {
           Comenzar otra vez
         </Button>
       </div>
+      </>
     );
   }
   if (jugando === false && nivel === 1) {
     return (
+      <><Image src="/tangram-logo.webp" alt="App Logo" height={90} width={90} className="rounded-full"></Image>
+      <h1 className={`scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6 text-center ${jugando ? "hidden": ""}`}>
+        Juego de Ordenar Palabras
+      </h1>
       <div className="w-full flex flex-col justify-center items-center space-y-6 my-auto">
         <IngresarNombre nombre={nombre} setNombre={setNombre} />
         <Button
@@ -199,7 +214,7 @@ export function Juego() {
           ¡Comenzar!
         </Button>
       </div>
-      
+      </>
     );
   }
 }

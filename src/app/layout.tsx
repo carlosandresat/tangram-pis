@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Tangram PIS",
-  description: "Descripción del proyecto",
+  description: "Juego interactivo para trabajar flexibilidad cognitiva en niños de EGB elemental en el área de Lengua y Literatura",
 };
 
 export default function RootLayout({
