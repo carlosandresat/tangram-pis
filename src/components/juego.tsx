@@ -4,7 +4,7 @@ import { OrdenarPalabra } from "@/components/ordenar-palabra";
 import { JuegoTangram } from "@/components/juego-tangram";
 import { EscribirHistoria } from "@/components/escribir-historia";
 import { IngresarNombre } from "@/components/ingresar-nombre";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useTransition } from "react";
 import { Button } from "@/components/ui/button";
 import { palabras } from "@/data/palabras";
 import { Temporizador } from "@/components/temporizador";
@@ -18,6 +18,7 @@ import {
 import { ChartConfig, ChartContainer } from "@/components/ui/chart"
 import Image from "next/image";
 import { Check } from "lucide-react";
+import { insertarRespuestas } from "@/app/actions/results";
 
 const generateChartData = (puntaje:number) => {
   const chartData = [
@@ -45,6 +46,7 @@ export function Juego() {
   const [jugando, setJugando] = useState<boolean>(false);
   const [tiempo, setTiempo] = useState<number>(0);
   const [puntaje, setPuntaje] = useState<number>(0);
+  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     // Seleccionar 10 palabras aleatorias del array `palabras`
@@ -73,7 +75,9 @@ export function Juego() {
     setTiempo(time);
   };
 
-  const nextLevel = () => {
+  const nextLevel =  () => {
+    startTransition(async () => {
+
     if(palabra === palabraIngresada){
       setPuntaje(puntaje+1)
     }
@@ -85,6 +89,7 @@ export function Juego() {
       historia: historia,
       tiempo,
     };
+    await insertarRespuestas(JSON.parse(JSON.stringify(resultados)))
     console.log(resultados);
     setHistoria("");
     if (nivel === 10) {
@@ -93,6 +98,7 @@ export function Juego() {
     }
     setNivel(nivel + 1);
     window.scroll(0, 0);
+  })
   };
   if (jugando) {
     return (
@@ -216,6 +222,7 @@ export function Juego() {
           onClick={() => {
             setJugando(true);
           }}
+          disabled={isPending}
         >
           ¡Comenzar!
         </Button>

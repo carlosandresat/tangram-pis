@@ -10,11 +10,24 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Check, X } from "lucide-react";
+import { obtenerRespuestas } from "@/app/actions/results";
 
-export default function Resultados() {
+export default async function Resultados() {
+  const respuestas = await obtenerRespuestas()
+
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}min ${remainingSeconds}s`;
+  };
+
   return (
     <>
       <header className="px-4 lg:px-6 h-16 flex items-center border-b fixed top-0 w-full bg-background z-10">
+        <div className="md:hidden">
+          <ModeToggle></ModeToggle>
+        </div>
+
         <nav className="ml-auto flex gap-4 sm:gap-6">
           <Link
             className="text-sm font-medium hover:underline underline-offset-4"
@@ -26,7 +39,7 @@ export default function Resultados() {
       </header>
 
       <main className="flex flex-col items-center p-8 w-full min-h-[calc(100vh-65px)] pt-24">
-        <div className="self-end">
+        <div className="self-start hidden md:block">
           <ModeToggle></ModeToggle>
         </div>
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl mt-6">
@@ -35,7 +48,7 @@ export default function Resultados() {
         <div className="w-full flex justify-center max-w-6xl mt-4">
           <Table>
             <TableCaption>
-              Estos on los últimos resultados obtenidos por la aplicación
+              Estos son los últimos resultados obtenidos por la aplicación
             </TableCaption>
             <TableHeader>
               <TableRow>
@@ -49,40 +62,23 @@ export default function Resultados() {
               </TableRow>
             </TableHeader>
             <TableBody>
-              <TableRow>
-                <TableCell>1</TableCell>
-                <TableCell>Nombre Ejemplo</TableCell>
-                <TableCell>1</TableCell>
-                <TableCell>conejo</TableCell>
-                <TableCell>
-                  <Check color="#30d15b"/>
-                </TableCell>
-                <TableCell>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris dapibus, lorem sit amet condimentum consequat, nisl
-                  felis mattis nunc, sed semper magna nisl ac metus. Cras dui
-                  nisl, ultricies sit amet risus at, lacinia dignissim urna.
-                  Etiam eu efficitur arcu.
-                </TableCell>
-                <TableCell>3min 8s</TableCell>
-              </TableRow>
-              <TableRow>
-                <TableCell>2</TableCell>
-                <TableCell>Nombre Ejemplo</TableCell>
-                <TableCell>1</TableCell>
-                <TableCell>perro</TableCell>
-                <TableCell>
-                  <X color="#ff1100"/>
-                </TableCell>
-                <TableCell>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Mauris dapibus, lorem sit amet condimentum consequat, nisl
-                  felis mattis nunc, sed semper magna nisl ac metus. Cras dui
-                  nisl, ultricies sit amet risus at, lacinia dignissim urna.
-                  Etiam eu efficitur arcu.
-                </TableCell>
-                <TableCell>1min 20s</TableCell>
-              </TableRow>
+            {respuestas ? respuestas.map((respuesta, index) => (
+                <TableRow key={index}>
+                  <TableCell>{index + 1}</TableCell>
+                  <TableCell>{respuesta.nombre}</TableCell>
+                  <TableCell>{respuesta.nivel}</TableCell>
+                  <TableCell>{respuesta.palabra}</TableCell>
+                  <TableCell>
+                    {respuesta.logrado ? (
+                      <Check color="#30d15b" />
+                    ) : (
+                      <X color="#ff1100" />
+                    )}
+                  </TableCell>
+                  <TableCell>{respuesta.historia}</TableCell>
+                  <TableCell>{formatTime(respuesta.tiempo)}</TableCell>
+                </TableRow>
+              )): null}
             </TableBody>
           </Table>
         </div>
