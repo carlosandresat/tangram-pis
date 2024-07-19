@@ -12,6 +12,7 @@ import {
 import { Check, X } from "lucide-react";
 import { obtenerRespuestas } from "@/app/actions/results";
 import { UpdateResultsButton } from "@/components/update-results-button";
+import Image from "next/image";
 
 export default async function Resultados() {
   const respuestas = await obtenerRespuestas()
@@ -24,12 +25,11 @@ export default async function Resultados() {
 
   return (
     <>
-      <header className="px-4 lg:px-6 h-16 flex items-center border-b fixed top-0 w-full bg-background z-10">
-        <div className="md:hidden">
-          <ModeToggle></ModeToggle>
-        </div>
+      <header className="px-4 lg:px-6 h-16 flex items-center border-b fixed top-0 w-full bg-background z-10 justify-between">
+        <Image src="/UCE.png" alt="UCE Logo" height={50} width={50}></Image>
 
-        <nav className="ml-auto flex gap-4 sm:gap-6">
+        <nav className=" flex gap-4 sm:gap-6">
+          
           <Link
             className="text-sm font-medium hover:underline underline-offset-4"
             href="/"
@@ -37,10 +37,13 @@ export default async function Resultados() {
             Volver al juego
           </Link>
         </nav>
+        
+        <Image src="/facultad.png" alt="Facultad Logo" height={50} width={50} className="rounded-full"></Image>
+
       </header>
 
       <main className="flex flex-col items-center p-8 w-full min-h-[calc(100vh-65px)] pt-24">
-        <div className="self-start hidden md:flex md:justify-between w-full">
+        <div className="self-start flex justify-between w-full">
           <ModeToggle></ModeToggle>
           <UpdateResultsButton></UpdateResultsButton>
         </div>
@@ -86,10 +89,10 @@ export default async function Resultados() {
         </div>
       </main>
       <footer className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t">
-        <p className="text-xs text-gray-500 dark:text-gray-400">
+        <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
           Desarrollado por{" "}
           <span className="font-bold text-foreground">
-            Integrante 1, Integrante 2, Integrante 3
+          Arias Michelle, Cabrera Karen, Guayta Katherine, Santillán Adrián y Suarez Nathali
           </span>
           .
         </p>
