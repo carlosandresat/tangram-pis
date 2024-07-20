@@ -183,7 +183,7 @@ export function Juego() {
         >
           Tangram: la Figura de las Mil Formas
         </h1>
-        <div className="w-full flex flex-col justify-center items-center space-y-6 my-auto">
+        <div className="w-full flex flex-col justify-center items-center space-y-6 my-auto mt-2">
           <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight text-center">
             Felicidades{" "}
             <span className="font-bold text-muted-foreground">{nombre}</span>,
@@ -243,6 +243,7 @@ export function Juego() {
               </RadialBarChart>
             </ChartContainer>
           </div>
+
           <Button
             onClick={() => {
               setNivel(1);
@@ -251,6 +252,24 @@ export function Juego() {
           >
             Comenzar otra vez
           </Button>
+          <div className="flex flex-col justify-center items-center space-y-2">
+          <a
+              href="https://www.canva.com/design/DAGLW2wMkeM/jIyF0qrzJgOMOUdXSjD4vw/view?utm_content=DAGLW2wMkeM&utm_campaign=designshare&utm_medium=link&utm_source=viewer"
+              target="_blank"
+            >
+              <Button variant="outline" className="h-12">
+                Instrucciones y <br className="md:hidden"></br> Autoevaluación
+              </Button>
+            </a>
+            <a
+              href="https://view.genially.com/669aad8aa0c4cb116d46329a/interactive-content-ficha-de-observacion-para-el-docente-tangram-figura-de-1000-formas "
+              target="_blank"
+            >
+              <Button variant="outline" className="h-12">
+              Ficha de observación <br className="md:hidden"></br> del docente
+              </Button>
+            </a>
+            </div>
         </div>
       </>
     );
